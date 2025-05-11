@@ -34,7 +34,7 @@ function Admin() {
 	const fetchActivities = async () => {
 		try {
 			const response = await axios.get<Activity[]>(
-				'http://localhost:8080/api/activities'
+				'http://localhost:8081/api/activities'
 			)
 			setActivities(response.data)
 		} catch (error) {
@@ -57,7 +57,7 @@ function Admin() {
 		e.preventDefault()
 		try {
 			const response = await axios.post(
-				'http://localhost:8080/api/activities',
+				'http://localhost:8081/api/activities',
 				{
 					...newActivity,
 					durationMinutes: parseInt(newActivity.durationMinutes),
@@ -85,7 +85,7 @@ function Admin() {
 		if (!editingActivity) return
 		try {
 			const response = await axios.put(
-				`http://localhost:8080/api/activities/${editingActivity.id}`,
+				`http://localhost:8081/api/activities/${editingActivity.id}`,
 				{
 					...newActivity,
 					durationMinutes: parseInt(newActivity.durationMinutes),
@@ -103,7 +103,7 @@ function Admin() {
 	const handleDelete = async (id: string) => {
 		try {
 			const response = await axios.delete(
-				`http://localhost:8080/api/activities/${id}`
+				`http://localhost:8081/api/activities/${id}`
 			)
 			console.log('Активность удалена:', response.data)
 			fetchActivities()
@@ -122,7 +122,7 @@ function Admin() {
 
 		try {
 			const promises = descriptions.map(desc =>
-				axios.post('http://localhost:8080/api/activities', {
+				axios.post('http://localhost:8081/api/activities', {
 					description: desc,
 					category: bulkCategory,
 					durationMinutes: parseInt(bulkDuration),

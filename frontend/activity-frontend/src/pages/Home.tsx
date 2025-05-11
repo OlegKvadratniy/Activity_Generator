@@ -20,7 +20,7 @@ function Home() {
 		const fetchCategories = async () => {
 			try {
 				const response = await axios.get<Activity[]>(
-					'http://localhost:8080/api/activities'
+					'http://localhost:8081/api/activities'
 				)
 				const uniqueCategories = [
 					...new Set(response.data.map(act => act.category)),
@@ -37,8 +37,8 @@ function Home() {
 	const fetchRandomActivity = async () => {
 		try {
 			const url = selectedCategory
-				? `http://localhost:8080/api/activities/random?category=${selectedCategory}`
-				: 'http://localhost:8080/api/activities/random'
+				? `http://localhost:8081/api/activities/random?category=${selectedCategory}`
+				: 'http://localhost:8081/api/activities/random'
 			const response = await axios.get<Activity>(url)
 			setActivity(response.data)
 		} catch (error) {
