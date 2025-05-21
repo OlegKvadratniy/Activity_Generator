@@ -3,7 +3,6 @@ services:
     build:
       context: ./frontend/activity-frontend
       dockerfile: Dockerfile
-    command: ['tail', '-f', '/dev/null'] # Фиктивная команда, чтобы контейнер не завершался
     networks:
       - app-network
 

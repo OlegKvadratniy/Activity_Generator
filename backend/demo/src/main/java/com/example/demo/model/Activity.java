@@ -12,6 +12,6 @@ public class Activity {
     @Id
     private String id;
     private String description;
-    private String category; // Например, "fun", "relax", "action"
-    private int durationMinutes; // Примерное время в минутах
+    private String category;
+    private int durationMinutes; 
 }

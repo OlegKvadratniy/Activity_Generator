@@ -2,7 +2,6 @@ import { useState, useEffect, ChangeEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import axios from 'axios'
 
-// Тип для активности
 interface Activity {
 	id: string
 	description: string
@@ -15,7 +14,6 @@ function Home() {
 	const [categories, setCategories] = useState<string[]>([])
 	const [selectedCategory, setSelectedCategory] = useState<string>('')
 
-	// Загружаем категории с бэкенда при монтировании компонента
 	useEffect(() => {
 		const fetchCategories = async () => {
 			try {
@@ -33,7 +31,6 @@ function Home() {
 		fetchCategories()
 	}, [])
 
-	// Функция для получения случайной активности
 	const fetchRandomActivity = async () => {
 		try {
 			const url = selectedCategory
@@ -46,7 +43,6 @@ function Home() {
 		}
 	}
 
-	// Обработчик изменения категории
 	const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) => {
 		setSelectedCategory(e.target.value)
 	}
@@ -54,7 +50,6 @@ function Home() {
 	return (
 		<div className='min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 py-12 px-0 w-full'>
 			<div className='w-full space-y-10 text-center'>
-				{/* Заголовок и описание */}
 				<div className='animate-fade-in'>
 					<h1 className='text-5xl sm:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight px-2 sm:px-4'>
 						Генератор "Что бы такого сделать?"
@@ -64,7 +59,6 @@ function Home() {
 					</p>
 				</div>
 
-				{/* Выбор категории с анимацией появления сверху */}
 				<motion.div
 					initial={{ opacity: 0, y: -10 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -102,7 +96,6 @@ function Home() {
 					</div>
 				</motion.div>
 
-				{/* Кнопка "Сгенерировать" */}
 				<div className='mt-8 animate-fade-in'>
 					<button
 						onClick={fetchRandomActivity}
@@ -125,7 +118,6 @@ function Home() {
 					</button>
 				</div>
 
-				{/* Карточка активности с анимацией ухода вниз и появления снизу */}
 				<AnimatePresence mode='wait'>
 					{activity && (
 						<motion.div

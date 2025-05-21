@@ -203,7 +203,6 @@ function Admin() {
 					Админка: Управление активностями
 				</h1>
 
-				{/* Форма для множественного добавления */}
 				<div className='mb-8 bg-white p-6 rounded-lg shadow-lg w-full px-2 sm:px-4'>
 					<h2 className='text-2xl font-semibold text-gray-800 mb-4'>
 						Множественное добавление
@@ -254,7 +253,6 @@ function Admin() {
 					</form>
 				</div>
 
-				{/* Форма для добавления/редактирования одной активности */}
 				<form
 					onSubmit={editingActivity ? handleUpdate : handleSubmit}
 					className='mb-8 bg-white p-6 rounded-lg shadow-lg w-full px-2 sm:px-4'
@@ -390,7 +388,6 @@ function Admin() {
 					</div>
 				</form>
 
-				{/* Список активностей с кнопками редактирования и удаления */}
 				<h2 className='text-2xl font-semibold text-gray-800 mb-6 text-center'>
 					Список активностей
 				</h2>
